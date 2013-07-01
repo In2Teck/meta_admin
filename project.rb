@@ -1,12 +1,13 @@
 PROJECT_NAME = ""
 
-def create name, database
-  system("rails _3.2.11_ new #{name} -d #{database}")
+def create name, adapter
+  system("rails _3.2.11_ new #{name} -d #{adapter}")
   PROJECT_NAME.replace name
 end
 
-def connection username, password, host
+def connection database, username, password, host
   text = File.read("#{PROJECT_NAME}/config/database.yml")
+  text.gsub!("database: #{PROJECT_NAME}_development", "database: #{database}")
   text.gsub!("username: root", "username: #{username}")
   text.gsub!("password:", "password: #{password}")
   text.gsub!("host: localhost", "host: #{host}")

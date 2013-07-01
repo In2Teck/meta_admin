@@ -1,5 +1,5 @@
 create 'wikiapodos', 'mysql'
-connection 'rails', 't2omedia', 'apps.t2omedia.com.mx'
+connection 'jc_wikiapodos', 'rails', 't2omedia', 'apps.t2omedia.com.mx'
 
 table 'usuarios'
 column 'facebook_id', 'string'
