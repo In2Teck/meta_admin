@@ -41,7 +41,7 @@ def scaffold
         insert_commands << ((k == 'has_many') ? "#{k} :#{table}" : "#{k} :#{table.singularize}")
        end
     end
-    system("cd #{PROJECT_NAME}; #{scaffold_command}")
+    system("cd #{PROJECT_NAME} && #{scaffold_command}")
     insert_commands.each do |relation_string|
       write_at "#{PROJECT_NAME}/app/models/#{table.singularize}.rb", 2, relation_string
     end
