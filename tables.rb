@@ -36,9 +36,18 @@ def scaffold
     COLUMNS[table].each do |k, v|
       scaffold_command += " #{k}:#{v}"    
     end
+    scaffold_command += " --no-timestamps --no-stylesheets"
     RELATIONSHIPS[table].each do |k, v|
        v.each do |table|
-        insert_commands << ((k == 'has_many') ? "#{k} :#{table}" : "#{k} :#{table.singularize}")
+        if table.respond_to?('each')
+          command = ((k == 'has_many') ? "#{k} :#{table[0]}" : "#{k} :#{table[0].singularize}")
+          table.drop(1).each do |property|
+            command += ", #{property}"
+          end
+          insert_commands << command
+        else
+          insert_commands << ((k == 'has_many') ? "#{k} :#{table}" : "#{k} :#{table.singularize}")
+        end
        end
     end
     system("cd #{PROJECT_NAME} && #{scaffold_command}")
@@ -56,7 +65,7 @@ def write_at(fname, at_line, sdat)
     pos = f.pos                     # save your position in the file
     rest = f.read                   # save the rest of the file
     f.seek pos                      # go back to the old position
-    f.write (sdat + "\n\n")
+    f.write (sdat + "\n")
     f.write rest                    # write new data & rest of file
   end
 

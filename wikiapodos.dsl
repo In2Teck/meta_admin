@@ -6,13 +6,17 @@ column 'facebook_id', 'string'
 column 'nombre', 'string'
 column 'apellido', 'string'
 column 'email', 'string'
-column 'es_fan', 'boolean'
+column 'es_fan', 'string'
+column 'fecha_creacion', 'datetime'
+column 'fecha_actualizacion', 'datetime'
 has_many ['compartidos']
 
 table 'compartidos'
-column 'usuario_id', 'integer'
+column 'usuario_id', 'string'
 column 'apodo_id', 'integer'
 column 'origen', 'string'
-belongs_to ['usuarios', 'apodos'] 
+column 'fecha_creacion', 'datetime'
+column 'fecha_actualizacion', 'datetime'
+belongs_to [['usuarios', ':primary_key => :facebook_id'], 'apodos'] 
 
 scaffold
