@@ -23,7 +23,7 @@ column 'status', 'string'
 column 'visible', 'boolean'
 column 'fecha_creacion', 'datetime'
 column 'fecha_actualizacion', 'datetime'
-belongs_to [['usuario_desde', ':class => "Usuario"', ':primary_key => :facebook_id', ':foreign_key => :usuario_desde_id'], ['usuario_para', ':class => "Usuario"', ':primary_key => :facebook_id', ':foreign_key => :usuario_para_id'], 'apodos']
+belongs_to [['usuario_desde', ':class_name => "Usuario"', ':primary_key => :facebook_id', ':foreign_key => :usuario_desde_id'], ['usuario_para', ':class_name => "Usuario"', ':primary_key => :facebook_id', ':foreign_key => :usuario_para_id'], 'apodos']
 
 table 'calificaciones', 'calificacion'
 column 'usuario_id', 'string'
@@ -48,7 +48,7 @@ column 'email', 'string'
 column 'es_fan', 'string'
 column 'fecha_creacion', 'datetime'
 column 'fecha_actualizacion', 'datetime'
-has_many ['compartidos', 'calificaciones', 'reportes', ['apodos_desde', ':class => "ApodosUsuario"', ':primary_key => :usuario_desde_id', ':foreign_key => :facebook_id'], ['apodos_para', ':class => "ApodosUsuario"', ':primary_key => :usuario_para_id', ':foreign_key => :facebook_id']]
+has_many ['compartidos', 'calificaciones', 'reportes', ['apodos_desde', ':class_name => "ApodosUsuario"', ':primary_key => :usuario_desde_id', ':foreign_key => :facebook_id'], ['apodos_para', ':class_name => "ApodosUsuario"', ':primary_key => :usuario_para_id', ':foreign_key => :facebook_id']]
 
 table 'compartidos', 'compartido'
 column 'usuario_id', 'string'
