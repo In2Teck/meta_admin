@@ -48,7 +48,7 @@ column 'email', 'string'
 column 'es_fan', 'string'
 column 'fecha_creacion', 'datetime'
 column 'fecha_actualizacion', 'datetime'
-has_many ['compartidos', 'calificaciones', 'reportes', ['apodos_desde', ':class_name => "ApodosUsuario"', ':primary_key => :usuario_desde_id', ':foreign_key => :facebook_id'], ['apodos_para', ':class_name => "ApodosUsuario"', ':primary_key => :usuario_para_id', ':foreign_key => :facebook_id']]
+has_many [['compartidos', ':foreign_key => :facebook_id'], ['calificaciones', ':foreign_key => :facebook_id'], ['reportes', ':foreign_key => :facebook_id'], ['apodos_desde', ':class_name => "ApodosUsuario"', ':primary_key => :usuario_desde_id', ':foreign_key => :facebook_id'], ['apodos_para', ':class_name => "ApodosUsuario"', ':primary_key => :usuario_para_id', ':foreign_key => :facebook_id']]
 
 table 'compartidos', 'compartido'
 column 'usuario_id', 'string'
