@@ -10,6 +10,7 @@ def connection database, username, password, host
   text.gsub!("database: #{PROJECT_NAME}_development", "database: #{database}")
   text.gsub!("username: root", "username: #{username}")
   text.gsub!("password:", "password: #{password}")
+  text.gsub!("reconnect: false", "reconnect: true")
   text.gsub!("host: localhost", "host: #{host}")
   File.open("#{PROJECT_NAME}/config/database.yml", "w"){|file| file.puts text}
 end

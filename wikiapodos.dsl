@@ -48,7 +48,7 @@ column 'email', 'string'
 column 'es_fan', 'string'
 column 'fecha_creacion', 'datetime'
 column 'fecha_actualizacion', 'datetime'
-has_many [['compartidos', ':primary_key => :facebook_id'], ['calificaciones', ':primary_key => :facebook_id'], ['reportes', ':primary_key => :facebook_id'], ['apodos_desde', ':class_name => "ApodosUsuario"', ':foreign_key => :usuario_desde_id', ':primary_key => :facebook_id'], ['apodos_para', ':class_name => "ApodosUsuario"', ':foreign_key => :usuario_para_id', ':primary_key => :facebook_id']]
+has_many [['compartidos', ':primary_key => :facebook_id'], ['apodos', ':primary_key => :facebook_id', ':foreign_key => :autor_id'], ['calificaciones', ':primary_key => :facebook_id'], ['reportes', ':primary_key => :facebook_id'], ['apodos_desde', ':class_name => "ApodosUsuario"', ':foreign_key => :usuario_desde_id', ':primary_key => :facebook_id'], ['apodos_para', ':class_name => "ApodosUsuario"', ':foreign_key => :usuario_para_id', ':primary_key => :facebook_id']]
 
 table 'compartidos', 'compartido'
 column 'usuario_id', 'string'
@@ -80,7 +80,7 @@ column 'imagen_url', 'string'
 column 'fecha_creacion', 'datetime'
 column 'fecha_actualizacion', 'datetime'
 has_many ['imagenes']
-belongs_to ['categoria']
+belongs_to ['categorias']
 
 table 'reportes', 'reportes'
 column 'usuario_id', 'string'
