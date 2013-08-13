@@ -14,3 +14,7 @@ def connection database, username, password, host
   text.gsub!("host: localhost", "host: #{host}")
   File.open("#{PROJECT_NAME}/config/database.yml", "w"){|file| file.puts text}
 end
+
+def add_gems
+  #write_at the gems required
+end

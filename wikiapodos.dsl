@@ -1,4 +1,5 @@
 create 'wikiapodos', 'mysql'
+#add_gems
 connection 'jc_wikiapodos', 'rails', 't2omedia', 'apps.t2omedia.com.mx'
 
 table 'apodos', 'apodo'
@@ -92,3 +93,4 @@ column 'fecha_actualizacion', 'datetime'
 belongs_to [['usuarios', ':primary_key => :facebook_id'], 'apodos'] 
 
 scaffold
+#admin_authentication

@@ -62,6 +62,10 @@ def scaffold
   end 
 end
 
+def admin_authentication
+  #ejecutar: rails generate devise:install, rails g devise:views
+end
+
 def write_at(fname, at_line, sdat)
   open(fname, 'r+') do |f|
     while (at_line-=1) > 0          # read up to the line you want to write after
