@@ -17,4 +17,5 @@ end
 
 def add_gems
   #write_at the gems required
+  #gem 'activerecord-custom_timestamps' para podermanejar custom timestamps
 end
