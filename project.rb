@@ -16,6 +16,10 @@ def connection database, username, password, host
 end
 
 def add_gems
-  #write_at the gems required
-  #gem 'activerecord-custom_timestamps' para podermanejar custom timestamps
+  File.open("#{PROJECT_NAME}/Gemfile", 'a') { |file|
+    file.puts("")
+    file.puts("gem \"will_paginate\"")
+    file.puts("gem \"devise\"")
+    file.puts("gem \"activerecord-custom_timestamps\"")
+  }
 end

@@ -1,5 +1,5 @@
 create 'wikiapodos', 'mysql'
-#add_gems
+add_gems
 connection 'jc_wikiapodos', 'rails', 't2omedia', 'apps.t2omedia.com.mx'
 
 table 'apodos', 'apodo'
